@@ -8,8 +8,12 @@ pygame.display.flip()
 running = True
 while running: 
     for event in pygame.event.get():     
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_u:
-                running = False
-
+        if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or event.type==pygame.QUIT:
+            running = False
+        x, y = pygame.mouse.get_pos()
+        #print(x,y)
+        screen.fill(background_colour) 
+        pygame.draw.circle(screen,(254,254,254), [x,y], 7)
+        pygame.display.update()
+        
 
