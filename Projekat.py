@@ -8,11 +8,12 @@ screen.fill(background_colour)
 pygame.display.flip() 
 running = True
 prozori=[]
-prozori.append(Prozor(100,50,1500,750,'a'))
 while running: 
     for event in pygame.event.get():     
         if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or event.type==pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+            prozori.append(Prozor(100,50,1500,750,'a'))
         if event.type==pygame.MOUSEBUTTONDOWN:
             for prozor in prozori:
                 if(x>=prozor.x and x<=prozor.x+prozor.width) and (y>prozor.y and y<prozor.y+prozor.height):
