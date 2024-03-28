@@ -1,5 +1,6 @@
-from Klase import *
-import pygame 
+from ClassProzor import *
+from ClassLajsna import *
+import pygame
 background_colour = (0, 0, 0) 
 screen = pygame.display.set_mode((1750, 850)) 
 pygame.display.set_caption('GUI') 
@@ -14,8 +15,8 @@ while running:
             running = False
         if event.type==pygame.MOUSEBUTTONDOWN:
             for prozor in prozori:
-                if(x>=prozor.lajsna.x and x<=prozor.lajsna.x+prozor.lajsna.width) and (y>prozor.lajsna.y and y<prozor.lajsna.y+prozor.lajsna.height):
-                    prozor.lajsna.click(x,y)
+                if(x>=prozor.x and x<=prozor.x+prozor.width) and (y>prozor.y and y<prozor.y+prozor.height):
+                    prozor.click(x,y)
                     if prozor.lajsna.press==0:
                         prozori.remove(prozor)
                 #print(lajsna.press)
@@ -25,7 +26,7 @@ while running:
         if event.type==pygame.MOUSEMOTION:
             for prozor in prozori:
                 if prozor.lajsna.press==1:
-                    prozor.lajsna.drag(x-prozor.lajsna.prevpress[0],y-prozor.lajsna.prevpress[1],x,y)
+                    prozor.drag(x-prozor.lajsna.prevpress[0],y-prozor.lajsna.prevpress[1],x,y)
     x, y = pygame.mouse.get_pos()
     #print(x,y)
     screen.fill(background_colour) 
