@@ -1,8 +1,8 @@
 
 import pygame 
 background_colour = (0, 0, 0) 
-screen = pygame.display.set_mode((1750, 850)) 
-pygame.display.set_caption('GUI') 
+screen = pygame.display.set_mode((1000, 600)) 
+pygame.display.set_caption('Pygame GUI') 
 screen.fill(background_colour) 
 pygame.display.flip() 
 running = True
