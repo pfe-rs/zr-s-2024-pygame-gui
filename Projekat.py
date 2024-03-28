@@ -14,7 +14,7 @@ while running:
             running = False
         if event.type==pygame.MOUSEBUTTONDOWN:
             for lajsna in laj:
-                if(x>=lajsna.x and x<=lajsna.x+lajsna.w) and (y>lajsna.y and y<lajsna.y+lajsna.h):
+                if(x>=lajsna.x and x<=lajsna.x+lajsna.width) and (y>lajsna.y and y<lajsna.y+lajsna.height):
                     lajsna.click(x,y)
                     if lajsna.press==0:
                         laj.remove(lajsna)
