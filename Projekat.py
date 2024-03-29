@@ -1,7 +1,6 @@
 from ClassWindowMenager import *
 from ClassProzor import *
 from ClassLajsna import *
-from Labela import *
 
 import pygame
 background_colour = (0, 0, 0) 
