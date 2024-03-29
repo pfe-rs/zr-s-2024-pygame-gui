@@ -13,11 +13,14 @@ class WindowMenager:
             prozor.draw(screen)
     def check_click(self,x,y):
         for i in range(len(self.prozori)-1,-1,-1):
-            print(i)
             if(x>=self.prozori[i].x and x<=self.prozori[i].x+self.prozori[i].width) and (y>self.prozori[i].y and y<self.prozori[i].y+self.prozori[i].height):
                 self.prozori[i].click(x,y)
                 if self.prozori[i].lajsna.press==0:
                     self.remove_prozor(self.prozori[i])
+                pom=self.prozori[i]
+                for j in range(i+1,len(self.prozori)):
+                    self.prozori[j-1]=self.prozori[j]
+                self.prozori[len(self.prozori)-1]=pom
                 break
     def mouseup(self):
         for prozor in self.prozori:
