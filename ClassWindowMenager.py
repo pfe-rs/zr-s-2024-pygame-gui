@@ -17,6 +17,7 @@ class WindowMenager:
                 self.prozori[i].click(x,y)
                 if self.prozori[i].lajsna.press==0:
                     self.remove_prozor(self.prozori[i])
+                    break
                 pom=self.prozori[i]
                 for j in range(i+1,len(self.prozori)):
                     self.prozori[j-1]=self.prozori[j]
