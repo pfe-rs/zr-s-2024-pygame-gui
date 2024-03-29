@@ -1,36 +1,38 @@
-from Klase import *
-import pygame 
+from ClassWindowMenager import *
+from ClassProzor import *
+from ClassLajsna import *
+import pygame
 background_colour = (0, 0, 0) 
 screen = pygame.display.set_mode((1750, 850)) 
 pygame.display.set_caption('GUI') 
 screen.fill(background_colour) 
 pygame.display.flip() 
 running = True
-laj=[]
-laj.append(Lajsna(450,200,600,30))
+prozori=[]
+window_menager=WindowMenager()
 while running: 
+    x, y = pygame.mouse.get_pos()
     for event in pygame.event.get():     
-        if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or event.type==pygame.QUIT:
+        if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or (event.type==pygame.QUIT):
             running = False
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+            window_menager.add_prozor()
         if event.type==pygame.MOUSEBUTTONDOWN:
-            for lajsna in laj:
-                if(x>=lajsna.x and x<=lajsna.x+lajsna.width) and (y>lajsna.y and y<lajsna.y+lajsna.height):
-                    lajsna.click(x,y)
-                    if lajsna.press==0:
-                        laj.remove(lajsna)
+            window_menager.check_click(x,y)
+            # for prozor in prozori:
+            #     if(x>=prozor.x and x<=prozor.x+prozor.width) and (y>prozor.y and y<prozor.y+prozor.height):
+            #         prozor.click(x,y)
+            #         if prozor.lajsna.press==0:
+            #             prozori.remove(prozor)
                 #print(lajsna.press)
         if event.type==pygame.MOUSEBUTTONUP:
-            for lajsna in laj:
-                lajsna.press=2
+            window_menager.mouseup()
         if event.type==pygame.MOUSEMOTION:
-            for lajsna in laj:
-                if lajsna.press==1:
-                    lajsna.drag(x-lajsna.prevpress[0],y-lajsna.prevpress[1],x,y)
-    x, y = pygame.mouse.get_pos()
+            window_menager.drag(x,y)
+    
     #print(x,y)
     screen.fill(background_colour) 
-    for lajsna in laj:
-        lajsna.draw(screen)
+    window_menager.draw(screen)
     pygame.draw.circle(screen,(254,254,254), [x,y], 7)
     pygame.display.update()
 
