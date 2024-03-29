@@ -1,6 +1,6 @@
 import pygame
 from Labela import *
-
+from Observer import *
 class Lajsna:
     def __init__(self, x, y, width, height):
         self.x = x
@@ -19,9 +19,10 @@ class Lajsna:
                          (self.x + self.width*14/15 - self.width/30 + self.width/15, self.y + self.height/10), 3)
         self.labela.draw(screen)
 
-    def click(self, x, y):
+    def click(self, x, y,prozor):
         if x > self.x + self.width*14/15 - self.width/30 and x < self.x + self.width*14/15 - self.width/30 + self.width/15:
-            self.press = 0
+            observer=EventHandler()
+            observer.event_trig("close_window",prozor)
         else:
             self.press = 1
             self.prevpress = [x, y]

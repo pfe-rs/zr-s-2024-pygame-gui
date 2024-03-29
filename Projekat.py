@@ -2,13 +2,15 @@ from ClassWindowMenager import *
 from ClassProzor import *
 from ClassLajsna import *
 from Labela import *
-
+from Observer import *
 import pygame
 background_colour = (0, 0, 0) 
 screen = pygame.display.set_mode((1750, 850)) 
 pygame.display.set_caption('GUI') 
 screen.fill(background_colour) 
 pygame.display.flip() 
+event_handler=EventHandler()
+event_handler.add_event("close_window",WindowMenager.remove_prozor)
 running = True
 prozori=[]
 window_menager=WindowMenager()

@@ -23,7 +23,6 @@ class Label(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=(self.x, self.y))
 
     def change_pos(self, x, y):
-        print(self.x, self.y)
         self.x = x
         self.y = y
         self.rect.topleft = (self.x, self.y)
