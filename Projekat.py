@@ -17,7 +17,7 @@ window_menager=WindowMenager()
 while running: 
     x, y = pygame.mouse.get_pos()
     for event in pygame.event.get():     
-        if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or event.type==pygame.QUIT:
+        if (event.type == pygame.KEYDOWN and event.key == pygame.K_u) or (event.type==pygame.QUIT):
             running = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_w:
             window_menager.add_prozor()
